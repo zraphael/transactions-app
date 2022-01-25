@@ -1,8 +1,14 @@
 import TransactionsList from './components/TransactionsList';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div 
+    style={{
+      backgroundColor: '#F9FAFB',
+      margin: 0,
+      display: 'flex',
+      justifyContent: 'center'
+    }}>
       <TransactionsList />
     </div>
   );
