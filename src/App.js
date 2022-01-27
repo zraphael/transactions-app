@@ -1,17 +1,12 @@
-import TransactionsList from './components/TransactionsList';
+import React from 'react'
+import TransactionsList from './pages/TransactionsList/TransactionsList'
 
-const App = () => {
-  return (
-    <div 
-    style={{
-      backgroundColor: '#F9FAFB',
-      margin: 0,
-      display: 'flex',
-      justifyContent: 'center'
-    }}>
-      <TransactionsList />
-    </div>
-  );
-}
+const App = () => (
+  <div style={{
+    backgroundColor: '#F9FAFB', display: 'flex', justifyContent: 'center', margin: 0,
+  }}>
+        <TransactionsList />
+      </div>
+)
 
-export default App;
+export default App
