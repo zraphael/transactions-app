@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import createTransaction from '../../services/createTransaction';
 import Button from '../Button/Button';
-import { Form, Label, Input } from './TransactionForm.styles';
+import {
+  Form, Label, Input, ButtonsDiv,
+} from './TransactionForm.styles';
 
 function TransactionForm() {
   const [establishmentName, setEstablishmentName] = useState('');
   const [transactionValue, setTransactionValue] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState('');
 
-  const handleEstablishmentChanger = (event) => {
+  const handleEstablishmentChange = (event) => {
+    setEstablishmentName(event.target.value);
+  };
+
+  const handleValueChange = (event) => {
     setEstablishmentName(event.target.value);
   };
 
@@ -24,10 +30,16 @@ function TransactionForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label />
-      <Input type="string" value={establishmentName} onChange={handleEstablishmentChanger} />
-      <Button name="SubmitButton" content="criar transação" />
-      <Button name="CancellButton" content="cancelar" />
+      <Label>Nome do estabelecimento</Label>
+      <Input type="string" value={establishmentName} onChange={handleEstablishmentChange} />
+      <Label>Valor</Label>
+      <Input type="number" value={transactionValue} onChange={handleValueChange} />
+      <Label>Meio de pagamento</Label>
+      <Input type="number" value={transactionValue} onChange={handleValueChange} />
+      <ButtonsDiv>
+        <Button name="SubmitButton" type="submit" value="Submit" content="criar transação" redirect="/" />
+        <Button name="CancellButton" content="cancelar" redirect="/" />
+      </ButtonsDiv>
     </Form>
   );
 }

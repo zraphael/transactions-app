@@ -10,7 +10,7 @@ import {
 
 function Container(props) {
   const {
-    title, buttonText, buttonRedirect, children,
+    title, buttonText, redirect, children,
   } = props;
 
   return (
@@ -19,7 +19,7 @@ function Container(props) {
         <Title>{title}</Title>
         {
             buttonText !== 'undefined'
-              ? <Button content={buttonText} redirectAddress={buttonRedirect || null} />
+              ? <Button style={{ width: '20%' }} content={buttonText} redirect={redirect || null} />
               : null
         }
       </Header>
@@ -32,14 +32,14 @@ Container.propTypes = {
   title: PropTypes.string,
   buttonText: PropTypes.string,
   children: PropTypes.node,
-  buttonRedirect: PropTypes.string,
+  redirect: PropTypes.string,
 };
 
 Container.defaultProps = {
   title: 'Listagem de Transações',
   buttonText: 'undefined',
   children: '',
-  buttonRedirect: null,
+  redirect: null,
 };
 
 export default Container;

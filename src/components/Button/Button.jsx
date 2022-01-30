@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import ButtonDiv from './Button.styles';
 
 function Button(props) {
-  const { content, buttonRedirect } = props;
+  const { content, redirect } = props;
+
+  const navigate = useNavigate();
 
   return (
     <ButtonDiv
-      onClick={buttonRedirect ? useNavigate(buttonRedirect) : null}
+      onClick={redirect ? () => { navigate(redirect); } : null}
     >
       {content}
     </ButtonDiv>
@@ -17,12 +19,12 @@ function Button(props) {
 
 Button.propTypes = {
   content: PropTypes.string,
-  buttonRedirect: PropTypes.string,
+  redirect: PropTypes.string,
 };
 
 Button.defaultProps = {
   content: 'default',
-  buttonRedirect: null,
+  redirect: null,
 };
 
 export default Button;

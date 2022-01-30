@@ -11,7 +11,7 @@ function TransactionsList() {
   const transactionsHistory = 'oi'; // atualizar para um GET na API
 
   return (
-    <Container title="Listagem de transações" buttonText="criar transação" buttonRedirect="/newtransaction">
+    <Container title="Listagem de transações" buttonText="criar transação" redirect="/newtransaction">
       <TransactionsBox>
         {transactionsHistory
           ? (

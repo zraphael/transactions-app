@@ -24,18 +24,24 @@ const Header = styled.div`
 `;
 
 const Title = styled.div`
+    display: flex;
+    width: 100%;
     height: 44px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 28px;
-    line-height: 56,25px;
+    font-size: 26px;
     white-space: nowrap;
     padding-bottom: 15px;
 
     @media only screen and (min-width: 1034px) {
-        widht: 100%;
+        justify-content: flex-start;
+        text-align: left;
         font-size: 48px;
+        width: 100%;
     }
 `;
 
