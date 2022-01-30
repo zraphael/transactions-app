@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const ButtonDiv = styled.button`
     width: 100%;
@@ -24,6 +24,6 @@ const ButtonDiv = styled.button`
         width: 20%;
         height: 56px;
     }
-`
+`;
 
-export default ButtonDiv
+export default ButtonDiv;
