@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 const ContainerWrap = styled.div`
     align-content: center;
-    width: 80%;
     height: 100vh;
+    padding-top: 79px;
+
 
     @media only screen and (min-width: 1034px) {
         widht: 40%;
+        padding: 79px 61px 0px 61px;
     }
 `;
 
@@ -16,7 +18,6 @@ const Header = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 44px;
-    padding-top 79px;
 
     @media only screen and (min-width: 1034px) {
         flex-direction: row;

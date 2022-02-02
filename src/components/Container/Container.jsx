@@ -18,7 +18,7 @@ function Container(props) {
       <Header>
         <Title>{title}</Title>
         {
-            buttonText !== 'undefined'
+            buttonText
               ? <Button style={{ width: '20%' }} content={buttonText} redirect={redirect || null} />
               : null
         }
@@ -37,7 +37,7 @@ Container.propTypes = {
 
 Container.defaultProps = {
   title: 'Listagem de Transações',
-  buttonText: 'undefined',
+  buttonText: null,
   children: '',
   redirect: null,
 };

@@ -2,8 +2,11 @@ import React from 'react';
 //  import getTransaction from '../../services/getTransactions'
 import {
   NoTransaction,
-  TransactionsListBox,
   TransactionsBox,
+  TransactionsTable,
+  TableHeader,
+  TableLine,
+  TableContent,
 } from './TransactionsList.styles';
 import Container from '../../components/Container/Container';
 
@@ -15,9 +18,32 @@ function TransactionsList() {
       <TransactionsBox>
         {transactionsHistory
           ? (
-            <TransactionsListBox>
-              <li>Transacao 1</li>
-            </TransactionsListBox>
+            <TransactionsTable>
+              <TableLine>
+                <TableHeader>Nome do estabelecimento</TableHeader>
+                <TableHeader>Data da compra</TableHeader>
+                <TableHeader>Valor</TableHeader>
+                <TableHeader>Meio de pagamento</TableHeader>
+              </TableLine>
+              <TableLine>
+                <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
+                <TableContent>20/10/2015</TableContent>
+                <TableContent>R$ 10,26</TableContent>
+                <TableContent>Boleto</TableContent>
+              </TableLine>
+              <TableLine>
+                <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
+                <TableContent>20/10/2015</TableContent>
+                <TableContent>R$ 10,26</TableContent>
+                <TableContent>Boleto</TableContent>
+              </TableLine>
+              <TableLine>
+                <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
+                <TableContent>20/10/2015</TableContent>
+                <TableContent>R$ 10,26</TableContent>
+                <TableContent>Boleto</TableContent>
+              </TableLine>
+            </TransactionsTable>
           )
           : <NoTransaction>não existem transações</NoTransaction>}
       </TransactionsBox>

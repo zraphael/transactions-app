@@ -16,10 +16,6 @@ const TransactionsBox = styled.div`
     }
 `;
 
-const TransactionsListBox = styled.ul`
-
-`;
-
 const NoTransaction = styled.div`
 
     width: 259px;
@@ -31,6 +27,46 @@ const NoTransaction = styled.div`
     line-height: 28px;
 `;
 
+const TransactionsTable = styled.table`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 34px;
+
+    @media (max-width: 736px) {
+        padding: 10px;
+    }
+`;
+
+const TableHeader = styled.th`
+    width: 25%;
+    text-align: left;
+    padding-bottom: 8px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+`;
+
+const TableLine = styled.tr`
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+`;
+
+const TableContent = styled.td`
+    border-top: 1px solid #E9E9E9;
+    padding-top: 20px;
+    width: 25%;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+`;
+
 export {
-  NoTransaction, TransactionsListBox, TransactionsBox,
+  NoTransaction, TransactionsBox, TransactionsTable, TableHeader, TableLine, TableContent,
 };
