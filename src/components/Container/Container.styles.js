@@ -3,10 +3,9 @@ import styled from 'styled-components';
 const ContainerWrap = styled.div`
     align-content: center;
     height: 100vh;
-    padding-top: 79px;
+    padding-top: 56px;
 
-
-    @media only screen and (min-width: 1034px) {
+    @media (min-width: 1034px) {
         widht: 40%;
         padding: 79px 61px 0px 61px;
     }
@@ -19,7 +18,7 @@ const Header = styled.div`
     align-items: center;
     height: 44px;
 
-    @media only screen and (min-width: 1034px) {
+    @media (min-width: 1034px) {
         flex-direction: row;
     }
 `;
@@ -38,7 +37,7 @@ const Title = styled.div`
     white-space: nowrap;
     padding-bottom: 15px;
 
-    @media only screen and (min-width: 1034px) {
+    @media (min-width: 1034px) {
         justify-content: flex-start;
         text-align: left;
         font-size: 48px;

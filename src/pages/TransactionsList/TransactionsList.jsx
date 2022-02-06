@@ -4,6 +4,7 @@ import {
   NoTransaction,
   TransactionsBox,
   TransactionsTable,
+  TableHeaderLine,
   TableHeader,
   TableLine,
   TableContent,
@@ -19,12 +20,12 @@ function TransactionsList() {
         {transactionsHistory
           ? (
             <TransactionsTable>
-              <TableLine>
+              <TableHeaderLine>
                 <TableHeader>Nome do estabelecimento</TableHeader>
                 <TableHeader>Data da compra</TableHeader>
                 <TableHeader>Valor</TableHeader>
                 <TableHeader>Meio de pagamento</TableHeader>
-              </TableLine>
+              </TableHeaderLine>
               <TableLine>
                 <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
                 <TableContent>20/10/2015</TableContent>
@@ -33,13 +34,13 @@ function TransactionsList() {
               </TableLine>
               <TableLine>
                 <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
-                <TableContent>20/10/2015</TableContent>
+                <TableContent>20/10/2016</TableContent>
                 <TableContent>R$ 10,26</TableContent>
                 <TableContent>Boleto</TableContent>
               </TableLine>
               <TableLine>
                 <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
-                <TableContent>20/10/2015</TableContent>
+                <TableContent>20/10/2017</TableContent>
                 <TableContent>R$ 10,26</TableContent>
                 <TableContent>Boleto</TableContent>
               </TableLine>

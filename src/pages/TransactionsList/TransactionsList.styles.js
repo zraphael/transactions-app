@@ -3,21 +3,16 @@ import styled from 'styled-components';
 const TransactionsBox = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     width: 100%;
     heigth: 100%;
-    height: 433px;
-
-    @media (max-width: 1034px) {
-        margin-top: 70px;
-    }
+    min-height: 433px;
 `;
 
 const NoTransaction = styled.div`
-
     width: 259px;
     height: 22px;
     font-family: Roboto, sans-serif;
@@ -28,14 +23,38 @@ const NoTransaction = styled.div`
 `;
 
 const TransactionsTable = styled.table`
+    padding: 10px;
+    padding-top: 2px;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 34px;
+    
+    @media (min-width: 708px) {
 
-    @media (max-width: 736px) {
-        padding: 10px;
+        flex-direction: column;
+        padding: 34px;
+    }
+`;
+
+const TableHeaderLine = styled.tr`
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+
+    @media (max-width: 708px) {
+
+        margin-top: 0px;
+        padding-bottom: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 708px) {
+
+        display: none;
+        visibility: hidden;
     }
 `;
 
@@ -52,11 +71,34 @@ const TableHeader = styled.th`
 const TableLine = styled.tr`
     width: 100%;
     display: flex;
-    padding-top: 20px;
+    margin-top: 20px;
+
+    @media (max-width: 708px) {
+
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (min-width: 708px) {
+
+        td {
+            border-top: 1px solid #E9E9E9;
+        }
+    }
+
+    @media (max-width: 708px) {
+
+        &:nth-child(odd) {
+            background-color: #cccccc;
+        }
+    }
 `;
 
 const TableContent = styled.td`
-    border-top: 1px solid #E9E9E9;
     padding-top: 20px;
     width: 25%;
     font-family: Roboto, sans-serif;
@@ -65,8 +107,20 @@ const TableContent = styled.td`
     font-size: 18px;
     line-height: 21px;
     color: #000000;
+
+    @media (max-width: 708px) {
+        padding-top: 10px;
+        text-align: center;
+        flex-basis: 40%;
+    }
 `;
 
 export {
-  NoTransaction, TransactionsBox, TransactionsTable, TableHeader, TableLine, TableContent,
+  NoTransaction,
+  TransactionsBox,
+  TransactionsTable,
+  TableHeaderLine,
+  TableHeader,
+  TableLine,
+  TableContent,
 };
