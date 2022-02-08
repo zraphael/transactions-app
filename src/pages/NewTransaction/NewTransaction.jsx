@@ -6,7 +6,7 @@ import FormWrap from './NewTransaction.styles';
 function NewTransaction() {
   return (
     <div style={{ width: '100%' }}>
-      <Container title="Listagem de transações">
+      <Container title="Criação de transações">
         <FormWrap>
           <TransactionForm />
         </FormWrap>

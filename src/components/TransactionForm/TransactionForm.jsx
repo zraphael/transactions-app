@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import createTransaction from '../../services/createTransaction';
 import Button from '../Button/Button';
 import {
-  Form, Label, Input, ButtonsDiv,
+  Form, Label, Input, Select, InputsBox, EachInput, ButtonsDiv,
 } from './TransactionForm.styles';
 
 function TransactionForm() {
@@ -15,7 +15,11 @@ function TransactionForm() {
   };
 
   const handleValueChange = (event) => {
-    setEstablishmentName(event.target.value);
+    setTransactionValue(event.target.value);
+  };
+
+  const handleMethodChange = (event) => {
+    setPaymentMethod(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -30,15 +34,23 @@ function TransactionForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label>Nome do estabelecimento</Label>
-      <Input type="string" value={establishmentName} onChange={handleEstablishmentChange} />
-      <Label>Valor</Label>
-      <Input type="number" value={transactionValue} onChange={handleValueChange} />
-      <Label>Meio de pagamento</Label>
-      <Input type="number" value={transactionValue} onChange={handleValueChange} />
+      <InputsBox>
+        <EachInput>
+          <Label>Nome do estabelecimento</Label>
+          <Input type="string" value={establishmentName} onChange={handleEstablishmentChange} />
+        </EachInput>
+        <EachInput>
+          <Label>Valor</Label>
+          <Input type="number" value={transactionValue} onChange={handleValueChange} />
+        </EachInput>
+        <EachInput>
+          <Label>Meio de pagamento</Label>
+          <Select value={paymentMethod} onChange={handleMethodChange} />
+        </EachInput>
+      </InputsBox>
       <ButtonsDiv>
         <Button name="SubmitButton" type="submit" value="Submit" content="criar transação" redirect="/" />
-        <Button name="CancellButton" content="cancelar" redirect="/" />
+        <Button name="CancellButton" content="cancelar" redirect="/" reverseStyle />
       </ButtonsDiv>
     </Form>
   );
