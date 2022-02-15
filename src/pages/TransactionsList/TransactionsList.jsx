@@ -1,53 +1,82 @@
 import React from 'react';
 //  import getTransaction from '../../services/getTransactions'
-import {
-  NoTransaction,
-  TransactionsBox,
-  TransactionsTable,
-  TableHeaderLine,
-  TableHeader,
-  TableLine,
-  TableContent,
-} from './TransactionsList.styles';
-import Container from '../../components/Container/Container';
+import * as S from './styles';
+import { Container, Header, Button } from '../../components/index';
 
 function TransactionsList() {
   const transactionsHistory = 'oi'; // atualizar para um GET na API
 
   return (
-    <Container title="Listagem de transações" buttonText="criar transação" redirect="/newtransaction">
-      <TransactionsBox>
+    <Container>
+      <Header title="Listagem de transações">
+        <Button content="criar transação" redirect="/adicionar-transacao" />
+      </Header>
+      <S.TransactionsBox>
         {transactionsHistory
           ? (
-            <TransactionsTable>
-              <TableHeaderLine>
-                <TableHeader>Nome do estabelecimento</TableHeader>
-                <TableHeader>Data da compra</TableHeader>
-                <TableHeader>Valor</TableHeader>
-                <TableHeader>Meio de pagamento</TableHeader>
-              </TableHeaderLine>
-              <TableLine>
-                <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
-                <TableContent>20/10/2015</TableContent>
-                <TableContent>R$ 10,26</TableContent>
-                <TableContent>Boleto</TableContent>
-              </TableLine>
-              <TableLine>
-                <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
-                <TableContent>20/10/2016</TableContent>
-                <TableContent>R$ 10,26</TableContent>
-                <TableContent>Boleto</TableContent>
-              </TableLine>
-              <TableLine>
-                <TableContent>MERCADO LIVRE PAGAMENTOS</TableContent>
-                <TableContent>20/10/2017</TableContent>
-                <TableContent>R$ 10,26</TableContent>
-                <TableContent>Boleto</TableContent>
-              </TableLine>
-            </TransactionsTable>
+            <S.TransactionsTable>
+              <thead>
+                <S.TableTitles>
+                  <S.ColumnTitle>Nome do estabelecimento</S.ColumnTitle>
+                  <S.ColumnTitle>Data da compra</S.ColumnTitle>
+                  <S.ColumnTitle>Valor</S.ColumnTitle>
+                  <S.ColumnTitle>Meio de pagamento</S.ColumnTitle>
+                </S.TableTitles>
+              </thead>
+              <tbody>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2015</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2016</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2017</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2017</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2017</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2017</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2017</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+                <S.TableLine>
+                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
+                  <S.TableContent>20/10/2017</S.TableContent>
+                  <S.TableContent>R$ 10,26</S.TableContent>
+                  <S.TableContent>Boleto</S.TableContent>
+                </S.TableLine>
+              </tbody>
+            </S.TransactionsTable>
           )
-          : <NoTransaction>não existem transações</NoTransaction>}
-      </TransactionsBox>
+          : <S.NoTransaction>não existem transações</S.NoTransaction>}
+      </S.TransactionsBox>
     </Container>
   );
 }

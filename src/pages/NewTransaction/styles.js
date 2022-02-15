@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 
-const Form = styled.form`
+const FormContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 1034px) {
+    }
+`;
+
+const TransactionForm = styled.form`
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -12,14 +24,14 @@ const Form = styled.form`
     }
 `;
 
-const Label = styled.label`
+const InformationType = styled.label`
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
 `;
 
-const Input = styled.input`
+const InputSpace = styled.input`
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -37,7 +49,7 @@ const Input = styled.input`
     margin-top: 5px;
 `;
 
-const Select = styled.select`
+const Dropdown = styled.select`
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -55,18 +67,18 @@ const Select = styled.select`
     margin-top: 5px;
 `;
 
-const InputsBox = styled.div`
+const InputsGroup = styled.div`
     display: flex;
     flex-direction: row;
 `;
 
-const EachInput = styled.div`
+const IndividualInput = styled.div`
     display: flex;
     flex-direction: column;
     padding-right: 16px;
 `;
 
-const ButtonsDiv = styled.div`
+const ButtonsGroup = styled.div`
     padding-top: 93px;
     align-self: flex-start;
     align-content: flex-start;
@@ -77,5 +89,12 @@ const ButtonsDiv = styled.div`
 `;
 
 export {
-  Form, Label, Input, Select, InputsBox, EachInput, ButtonsDiv,
+  FormContainer,
+  TransactionForm,
+  InformationType,
+  InputSpace,
+  Dropdown,
+  InputsGroup,
+  IndividualInput,
+  ButtonsGroup,
 };

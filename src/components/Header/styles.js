@@ -1,41 +1,23 @@
 import styled from 'styled-components';
 
-const ContainerWrap = styled.div`
-    align-content: center;
-    height: 100vh;
-    padding-top: 56px;
-
-    @media (min-width: 1034px) {
-        widht: 40%;
-        padding: 79px 61px 0px 61px;
-    }
-`;
-
 const Header = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    height: 44px;
+    padding-bottom: 44px;
 
     @media (min-width: 1034px) {
         flex-direction: row;
     }
 `;
 
-const Title = styled.div`
-    display: flex;
+const Title = styled.h1`
     width: 100%;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 26px;
     white-space: nowrap;
-    padding-bottom: 15px;
 
     @media (min-width: 1034px) {
         justify-content: flex-start;
@@ -48,7 +30,6 @@ const Title = styled.div`
 const ChildrenComponent = styled.div`
     display: flex;
     flex-direction: row;
-    height: 433px;
     margin-top: 44px;
     justify-content: center;
     align-items: center;
@@ -59,5 +40,5 @@ const ChildrenComponent = styled.div`
 `;
 
 export {
-  ContainerWrap, Title, Header, ChildrenComponent,
+  Title, Header, ChildrenComponent,
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ButtonDiv from './Button.styles';
+import ButtonLayout from './styles';
 
 function Button(props) {
   const { content, redirect, reverseStyle } = props;
@@ -9,12 +9,12 @@ function Button(props) {
   const navigate = useNavigate();
 
   return (
-    <ButtonDiv
+    <ButtonLayout
       style={reverseStyle ? { background: '#FFFFFF', color: '#4F46E5', border: '1px solid #4F46E5' } : null}
       onClick={redirect ? () => { navigate(redirect); } : null}
     >
       {content}
-    </ButtonDiv>
+    </ButtonLayout>
   );
 }
 

@@ -10,6 +10,7 @@ const TransactionsBox = styled.div`
     width: 100%;
     heigth: 100%;
     min-height: 433px;
+    margin-bottom: 100px;
 `;
 
 const NoTransaction = styled.div`
@@ -37,7 +38,7 @@ const TransactionsTable = styled.table`
     }
 `;
 
-const TableHeaderLine = styled.tr`
+const TableTitles = styled.tr`
     width: 100%;
     display: flex;
     margin-top: 20px;
@@ -58,7 +59,7 @@ const TableHeaderLine = styled.tr`
     }
 `;
 
-const TableHeader = styled.th`
+const ColumnTitle = styled.th`
     width: 25%;
     text-align: left;
     padding-bottom: 8px;
@@ -119,8 +120,8 @@ export {
   NoTransaction,
   TransactionsBox,
   TransactionsTable,
-  TableHeaderLine,
-  TableHeader,
+  TableTitles,
+  ColumnTitle,
   TableLine,
   TableContent,
 };
