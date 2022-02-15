@@ -12,6 +12,7 @@ const ButtonLayout = styled.button`
     transition: 0.7s;
     padding: 10px;
     white-space: nowrap;
+    cursor: pointer;
 
     :hover {
         transition: 0.7s;

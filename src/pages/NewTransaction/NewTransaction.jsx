@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import createTransaction from '../../services/createTransaction';
 import {
   Container, Header, Button, LinkButton,
 } from '../../components';
-// import FormContainer from './NewTransaction.styles';
+import MoneyFormatter from '../../hooks/MoneyFormatter';
 import * as S from './styles';
 
 function NewTransaction() {
@@ -11,26 +12,36 @@ function NewTransaction() {
   const [transactionValue, setTransactionValue] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState('');
 
+  const navigate = useNavigate();
+
   const handleEstablishmentChange = (event) => {
     setEstablishmentName(event.target.value);
   };
 
   const handleValueChange = (event) => {
-    setTransactionValue(event.target.value);
+    const inputValue = event.target.value;
+    const formatedValue = MoneyFormatter(inputValue);
+    setTransactionValue(formatedValue);
   };
 
   const handleMethodChange = (event) => {
     setPaymentMethod(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
+    // event.preventDefault();
 
-    setEstablishmentName('');
-    setTransactionValue(0);
-    setPaymentMethod('');
-
-    createTransaction(establishmentName, transactionValue, paymentMethod);
+    try {
+      await createTransaction(establishmentName, transactionValue, paymentMethod);
+      // Are the following lines necessary?
+      // setEstablishmentName('');
+      // setTransactionValue(0);
+      // setPaymentMethod('');
+      navigate('/');
+    } catch (e) {
+      console.log(e);
+      // Treat this error
+    }
   };
 
   return (
