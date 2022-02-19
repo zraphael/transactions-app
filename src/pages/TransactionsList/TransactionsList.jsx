@@ -1,15 +1,17 @@
 import React from 'react';
-//  import getTransaction from '../../services/getTransactions'
+import { v4 as uuid } from 'uuid';
+import getTransactions from '../../services/getTransactions';
 import * as S from './styles';
-import { Container, Header, Button } from '../../components/index';
+import { Container, Header, LinkButton } from '../../components/index';
 
 function TransactionsList() {
-  const transactionsHistory = 'oi'; // atualizar para um GET na API
+  const transactionsHistory = getTransactions(); // atualizar para um GET na API
+  console.log(transactionsHistory);
 
   return (
     <Container>
       <Header title="Listagem de transações">
-        <Button content="criar transação" redirect="/adicionar-transacao" />
+        <LinkButton content="criar transação" to="/adicionar-transacao" variant="contained" />
       </Header>
       <S.TransactionsBox>
         {transactionsHistory
@@ -24,54 +26,14 @@ function TransactionsList() {
                 </S.TableTitles>
               </thead>
               <tbody>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2015</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2016</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2017</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2017</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2017</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2017</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2017</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
-                <S.TableLine>
-                  <S.TableContent>MERCADO LIVRE PAGAMENTOS</S.TableContent>
-                  <S.TableContent>20/10/2017</S.TableContent>
-                  <S.TableContent>R$ 10,26</S.TableContent>
-                  <S.TableContent>Boleto</S.TableContent>
-                </S.TableLine>
+                {transactionsHistory.map((item) => (
+                  <S.TableLine>
+                    <S.TableContent key={uuid()}>{item.establishmentName}</S.TableContent>
+                    <S.TableContent key={uuid()}>{item.date}</S.TableContent>
+                    <S.TableContent key={uuid()}>{item.value}</S.TableContent>
+                    <S.TableContent key={uuid()}>{item.paymentMethod}</S.TableContent>
+                  </S.TableLine>
+                ))}
               </tbody>
             </S.TransactionsTable>
           )

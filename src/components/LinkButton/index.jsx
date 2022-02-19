@@ -1,16 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ButtonLayout from './styles';
 
-function Button(props) {
-  const { content, redirect, variant } = props;
-
-  const navigate = useNavigate();
+function LinkButton(props) {
+  const { content, to, variant } = props;
 
   return (
     <ButtonLayout
-      onClick={redirect ? () => { navigate(redirect); } : null}
+      to={to}
       variant={variant}
     >
       {content}
@@ -18,16 +15,14 @@ function Button(props) {
   );
 }
 
-Button.propTypes = {
-  content: PropTypes.string,
-  redirect: PropTypes.string,
+LinkButton.propTypes = {
+  content: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(['contained', 'outlined']),
 };
 
-Button.defaultProps = {
-  content: 'default',
-  redirect: null,
+LinkButton.defaultProps = {
   variant: 'contained',
 };
 
-export default Button;
+export default LinkButton;

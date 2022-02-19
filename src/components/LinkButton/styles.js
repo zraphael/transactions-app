@@ -1,23 +1,41 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const ButtonLayout = styled.button`
-    width: 189px;
-    height: 56px;
-    background: ${(props) => (props.variant ? '#FFFFFF' : '#4F46E5')};
+const colorsSet = {
+  contained: {
+    background: '#4F46E5',
+    color: '#FFFFFF',
+    border: '#FFFFFF',
+    backgroundOnHover: '#3B35AC',
+  },
+  outlined: {
+    background: '#FFFFFF',
+    color: '#4F46E5',
+    border: '#4F46E5',
+    backgroundOnHover: '#E7E7E7',
+  },
+};
+
+const ButtonLayout = styled(Link)`
+    width: 187px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: ${(props) => colorsSet[props.variant].background};
     border-radius: 8px;
     font-weight: normal;
     font-size: 22px;
-    color: ${(props) => (props.variant ? '#4F46E5' : '#FFFFFF')};
-    border: ${(props) => (props.variant ? '1px solid #4F46E5' : '1px solid #FFFFFF')};
+    color: ${(props) => colorsSet[props.variant].color};
+    border: 1px solid ${(props) => colorsSet[props.variant].border};
     transition: 0.7s;
-    padding: 10px;
     white-space: nowrap;
-    cursor: pointer;
+    text-decoration: none;
 
     :hover {
         transition: 0.7s;
         box-shadow: 0.50px 0.50px 0.50px 0.50px gray;
-        background: ${(props) => (props.variant ? '#E7E7E7' : '#3B35AC')};
+        background: ${(props) => colorsSet[props.variant].backgroundOnHover};
     }
 
     @media (max-width: 1034px) {

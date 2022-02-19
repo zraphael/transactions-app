@@ -10,7 +10,7 @@ const MoneyFormatter = (value) => {
 
   const formattedValue = Number(unmaskedValue / 100)
     .toFixed(2)
-    .replace(/\d(?=(\d{3})+,)/g, '$&.');
+    .replace(/\d(?=(\d{3})+,)/g, '$&.'); // Mask is broken yet
 
   return formattedValue;
 };

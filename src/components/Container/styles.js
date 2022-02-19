@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const ContainerWrap = styled.div`
-    align-content: center;
+    margin: 0 auto;
+    max-width: 1600px;
     padding-top: 56px;
 
     @media (min-width: 1034px) {

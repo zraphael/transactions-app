@@ -49,11 +49,11 @@ const InputSpace = styled.input`
     margin-top: 5px;
 `;
 
-const Dropdown = styled.select`
+const PaymentMethods = styled.select`
     font-family: Roboto, sans-serif;
     font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: normal;
+    font-size: 16px;
 
     width: 313px;
     height: 45px;
@@ -65,6 +65,13 @@ const Dropdown = styled.select`
     outline: none !important;
     border: none;
     margin-top: 5px;
+`;
+
+const Method = styled.option`
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
 `;
 
 const InputsGroup = styled.div`
@@ -79,9 +86,9 @@ const IndividualInput = styled.div`
 `;
 
 const ButtonsGroup = styled.div`
+    display: flex;
     padding-top: 93px;
-    align-self: flex-start;
-    align-content: flex-start;
+    flex-direction: row;
 
     button {
       margin-right: 13px;
@@ -93,7 +100,8 @@ export {
   TransactionForm,
   InformationType,
   InputSpace,
-  Dropdown,
+  PaymentMethods,
+  Method,
   InputsGroup,
   IndividualInput,
   ButtonsGroup,

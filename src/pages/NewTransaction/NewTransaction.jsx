@@ -10,7 +10,7 @@ import * as S from './styles';
 function NewTransaction() {
   const [establishmentName, setEstablishmentName] = useState('');
   const [transactionValue, setTransactionValue] = useState(0);
-  const [paymentMethod, setPaymentMethod] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('Boleto');
 
   const navigate = useNavigate();
 
@@ -28,8 +28,8 @@ function NewTransaction() {
     setPaymentMethod(event.target.value);
   };
 
-  const handleSubmit = async () => {
-    // event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
     try {
       await createTransaction(establishmentName, transactionValue, paymentMethod);
@@ -46,11 +46,9 @@ function NewTransaction() {
 
   return (
     <Container>
-      <Header title="Criação de transações">
-        <Button content="criar transação" redirect="/adicionar-transacao" />
-      </Header>
+      <Header title="Criação de transações" />
       <S.FormContainer>
-        <S.TransactionForm onSubmit={handleSubmit}>
+        <S.TransactionForm>
           <S.InputsGroup>
             <S.IndividualInput>
               <S.InformationType>Nome do estabelecimento</S.InformationType>
@@ -62,12 +60,18 @@ function NewTransaction() {
             </S.IndividualInput>
             <S.IndividualInput>
               <S.InformationType>Meio de pagamento</S.InformationType>
-              <S.Dropdown value={paymentMethod} onChange={handleMethodChange} />
+              <S.PaymentMethods value={paymentMethod} onChange={handleMethodChange}>
+                <S.Method>Boleto</S.Method>
+                <S.Method>Dinheiro</S.Method>
+                <S.Method>Cartão de Crédito</S.Method>
+                <S.Method>Cartão de Débito</S.Method>
+                <S.Method>Pix</S.Method>
+              </S.PaymentMethods>
             </S.IndividualInput>
           </S.InputsGroup>
           <S.ButtonsGroup>
-            <Button type="submit" value="Submit" content="criar transação" />
-            <LinkButton type="reset" content="cancelar" redirect="/" reverseStyle variant="outlined" />
+            <Button type="submit" value="Submit" content="criar transação" onClick={handleSubmit} variant="contained" />
+            <LinkButton type="reset" content="cancelar" to="/" variant="outlined" />
           </S.ButtonsGroup>
         </S.TransactionForm>
       </S.FormContainer>
