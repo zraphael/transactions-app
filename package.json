@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.0",
+    "dayjs": "^1.10.7",
     "eslint-plugin-sort-destructure-keys": "^1.4.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",

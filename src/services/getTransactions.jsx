@@ -1,6 +1,14 @@
-const getTransactions = () => {
-  const newStorage = JSON.parse(localStorage.getItem('transactions'));
-  return newStorage;
+import axiosClient from './axios';
+
+const getTransactions = async () => {
+  try {
+    const transactions = await axiosClient.get('/transactions');
+
+    return transactions.data.data;
+  } catch (e) {
+    // console.log(e);
+    return 'Error';
+  }
 };
 
 export default getTransactions;

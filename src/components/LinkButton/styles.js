@@ -17,7 +17,9 @@ const colorsSet = {
 };
 
 const ButtonLayout = styled(Link)`
-    width: 187px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 209px;
     height: 54px;
     display: flex;
     justify-content: center;
@@ -39,7 +41,8 @@ const ButtonLayout = styled(Link)`
     }
 
     @media (max-width: 1034px) {
-        width: 100%;
+        margin-top: 10px;
+        width: 90%;
     }
 `;
 

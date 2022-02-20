@@ -4,13 +4,13 @@ import createTransaction from '../../services/createTransaction';
 import {
   Container, Header, Button, LinkButton,
 } from '../../components';
-import MoneyFormatter from '../../hooks/MoneyFormatter';
+import DynamicMoneyFormatter from '../../hooks/DynamicMoneyFormatter';
 import * as S from './styles';
 
 function NewTransaction() {
   const [establishmentName, setEstablishmentName] = useState('');
   const [transactionValue, setTransactionValue] = useState(0);
-  const [paymentMethod, setPaymentMethod] = useState('Boleto');
+  const [paymentMethod, setPaymentMethod] = useState('boleto');
 
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ function NewTransaction() {
 
   const handleValueChange = (event) => {
     const inputValue = event.target.value;
-    const formatedValue = MoneyFormatter(inputValue);
+    const formatedValue = DynamicMoneyFormatter(inputValue);
     setTransactionValue(formatedValue);
   };
 
@@ -33,10 +33,7 @@ function NewTransaction() {
 
     try {
       await createTransaction(establishmentName, transactionValue, paymentMethod);
-      // Are the following lines necessary?
-      // setEstablishmentName('');
-      // setTransactionValue(0);
-      // setPaymentMethod('');
+      console.log('Transação adicionada com sucesso!');
       navigate('/');
     } catch (e) {
       console.log(e);
@@ -61,11 +58,8 @@ function NewTransaction() {
             <S.IndividualInput>
               <S.InformationType>Meio de pagamento</S.InformationType>
               <S.PaymentMethods value={paymentMethod} onChange={handleMethodChange}>
-                <S.Method>Boleto</S.Method>
-                <S.Method>Dinheiro</S.Method>
-                <S.Method>Cartão de Crédito</S.Method>
-                <S.Method>Cartão de Débito</S.Method>
-                <S.Method>Pix</S.Method>
+                <S.Method>boleto</S.Method>
+                <S.Method>credit_card</S.Method>
               </S.PaymentMethods>
             </S.IndividualInput>
           </S.InputsGroup>

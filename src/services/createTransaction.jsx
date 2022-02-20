@@ -1,18 +1,22 @@
-/* eslint-disable linebreak-style */
-const createTransaction = async (establishmentName, value, paymentMethod) => {
-  const date = new Date().toLocaleDateString();
-  const transactionInformation = {
-    establishmentName, date, value, paymentMethod,
-  };
-  // async-await adicionado apenas para simulacao de uso de API
-  // eslint-disable-next-line no-undef
-  const currentStorage = JSON.parse(localStorage.getItem('transactions'));
+import axiosClient from './axios';
 
-  if (currentStorage) {
-    const newTransaction = [...currentStorage, transactionInformation];
-    localStorage.setItem('transactions', JSON.stringify(newTransaction));
-  } else {
-    localStorage.setItem('transactions', JSON.stringify(transactionInformation));
+const createTransaction = async (establishmentName, value, paymentMethod) => {
+  const parsedValue = parseInt(value, 10);
+  console.log(parsedValue);
+
+  try {
+    const postTransaction = await axiosClient.post('/transactions', {
+      data: {
+        establishment_name: establishmentName,
+        amount: parsedValue,
+        payment_method: paymentMethod,
+      },
+    });
+
+    console.log(postTransaction);
+    return postTransaction.status;
+  } catch (e) {
+    return false;
   }
 };
 

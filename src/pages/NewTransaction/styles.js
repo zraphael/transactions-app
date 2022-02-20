@@ -21,6 +21,8 @@ const TransactionForm = styled.form`
     flex-direction: column;
 
     @media (max-width: 1034px) {
+        justify-content: center;
+        align-items: center;
     }
 `;
 
@@ -47,6 +49,10 @@ const InputSpace = styled.input`
     outline: none !important;
     border: none;
     margin-top: 5px;
+
+    @media (max-width: 1034px) {
+        width: 100%;
+    }
 `;
 
 const PaymentMethods = styled.select`
@@ -65,6 +71,10 @@ const PaymentMethods = styled.select`
     outline: none !important;
     border: none;
     margin-top: 5px;
+
+    @media (max-width: 1034px) {
+        width: 100%;
+    }
 `;
 
 const Method = styled.option`
@@ -77,12 +87,21 @@ const Method = styled.option`
 const InputsGroup = styled.div`
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 1034px) {
+        flex-direction: column;
+        width: 80%;
+    }
 `;
 
 const IndividualInput = styled.div`
     display: flex;
     flex-direction: column;
     padding-right: 16px;
+
+    @media (max-width: 1034px) {
+        width: 100%;
+    }
 `;
 
 const ButtonsGroup = styled.div`
@@ -92,6 +111,16 @@ const ButtonsGroup = styled.div`
 
     button {
       margin-right: 13px;
+    }
+
+    @media (max-width: 1034px) {
+        width: 95%;
+        padding-top: 20px;
+        flex-direction: column;
+
+        a {
+           width: 94%; 
+        }
     }
 `;
 

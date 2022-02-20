@@ -16,7 +16,8 @@ const colorsSet = {
 };
 
 const ButtonLayout = styled.button`
-    width: 189px;
+    padding: 10px;
+    width: 209px;
     height: 56px;
     background: ${(props) => colorsSet[props.variant].background};
     border-radius: 8px;
@@ -25,7 +26,6 @@ const ButtonLayout = styled.button`
     color: ${(props) => colorsSet[props.variant].color};
     border: ${(props) => colorsSet[props.variant].border};
     transition: 0.7s;
-    padding: 10px;
     white-space: nowrap;
     cursor: pointer;
 

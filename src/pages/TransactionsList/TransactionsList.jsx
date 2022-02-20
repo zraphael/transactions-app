@@ -1,12 +1,23 @@
-import React from 'react';
-import { v4 as uuid } from 'uuid';
+import React, { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import StaticMoneyFormatter from '../../hooks/StaticMoneyFormatter';
 import getTransactions from '../../services/getTransactions';
 import * as S from './styles';
 import { Container, Header, LinkButton } from '../../components/index';
 
+dayjs.extend(customParseFormat);
+
 function TransactionsList() {
-  const transactionsHistory = getTransactions(); // atualizar para um GET na API
-  console.log(transactionsHistory);
+  const [transactionsList, setTransactions] = useState(null);
+  // const [onGetError, setError] = useState(false);
+
+  useEffect(() => {
+    getTransactions()
+      .then((items) => {
+        setTransactions(items);
+      });
+  }, []);
 
   return (
     <Container>
@@ -14,7 +25,7 @@ function TransactionsList() {
         <LinkButton content="criar transação" to="/adicionar-transacao" variant="contained" />
       </Header>
       <S.TransactionsBox>
-        {transactionsHistory
+        {transactionsList
           ? (
             <S.TransactionsTable>
               <thead>
@@ -26,12 +37,12 @@ function TransactionsList() {
                 </S.TableTitles>
               </thead>
               <tbody>
-                {transactionsHistory.map((item) => (
-                  <S.TableLine>
-                    <S.TableContent key={uuid()}>{item.establishmentName}</S.TableContent>
-                    <S.TableContent key={uuid()}>{item.date}</S.TableContent>
-                    <S.TableContent key={uuid()}>{item.value}</S.TableContent>
-                    <S.TableContent key={uuid()}>{item.paymentMethod}</S.TableContent>
+                {transactionsList.map((item) => (
+                  <S.TableLine key={item.id}>
+                    <S.TableContent>{item.attributes.establishment_name}</S.TableContent>
+                    <S.TableContent>{dayjs(item.attributes.createdAt).format('DD/MM/YYYY')}</S.TableContent>
+                    <S.TableContent>{StaticMoneyFormatter(item.attributes.amount)}</S.TableContent>
+                    <S.TableContent>{item.attributes.payment_method}</S.TableContent>
                   </S.TableLine>
                 ))}
               </tbody>

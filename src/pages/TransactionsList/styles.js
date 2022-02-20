@@ -14,6 +14,7 @@ const TransactionsBox = styled.div`
 `;
 
 const NoTransaction = styled.div`
+    padding-top: 216px;
     width: 259px;
     height: 22px;
     font-family: Roboto, sans-serif;
@@ -21,6 +22,11 @@ const NoTransaction = styled.div`
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
+
+    @media (max-width: 708px) {
+
+        padding-top: 156px;
+    }
 `;
 
 const TransactionsTable = styled.table`
