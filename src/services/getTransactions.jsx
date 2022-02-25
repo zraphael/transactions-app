@@ -7,7 +7,7 @@ const getTransactions = async () => {
     return transactions.data.data;
   } catch (e) {
     // console.log(e);
-    return 'Error';
+    return 'API Error';
   }
 };
 

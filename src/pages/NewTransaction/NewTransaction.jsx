@@ -4,7 +4,7 @@ import createTransaction from '../../services/createTransaction';
 import {
   Container, Header, Button, LinkButton,
 } from '../../components';
-import DynamicMoneyFormatter from '../../hooks/DynamicMoneyFormatter';
+import dynamicMoneyFormatter from '../../utils/formatters/dynamicMoneyFormatter';
 import * as S from './styles';
 
 function NewTransaction() {
@@ -20,7 +20,8 @@ function NewTransaction() {
 
   const handleValueChange = (event) => {
     const inputValue = event.target.value;
-    const formatedValue = DynamicMoneyFormatter(inputValue);
+    console.log(inputValue);
+    const formatedValue = dynamicMoneyFormatter(inputValue);
     setTransactionValue(formatedValue);
   };
 

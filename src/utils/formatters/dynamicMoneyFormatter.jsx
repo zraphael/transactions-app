@@ -1,4 +1,4 @@
-const DynamicMoneyFormatter = (value) => {
+const dynamicMoneyFormatter = (value) => {
   const ValueMaskReset = (maskedValue) => {
     const removedSymbols = maskedValue.replace(/\D/g, '');
 
@@ -13,4 +13,4 @@ const DynamicMoneyFormatter = (value) => {
   return formattedValue;
 };
 
-export default DynamicMoneyFormatter;
+export default dynamicMoneyFormatter;

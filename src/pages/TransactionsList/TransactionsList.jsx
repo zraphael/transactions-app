@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import StaticMoneyFormatter from '../../hooks/StaticMoneyFormatter';
+import staticMoneyFormatter from '../../utils/formatters/staticMoneyFormatter';
 import getTransactions from '../../services/getTransactions';
 import * as S from './styles';
 import { Container, Header, LinkButton } from '../../components/index';
@@ -16,6 +16,7 @@ function TransactionsList() {
     getTransactions()
       .then((items) => {
         setTransactions(items);
+        console.log(transactionsList);
       });
   }, []);
 
@@ -37,18 +38,28 @@ function TransactionsList() {
                 </S.TableTitles>
               </thead>
               <tbody>
-                {transactionsList.map((item) => (
-                  <S.TableLine key={item.id}>
-                    <S.TableContent>{item.attributes.establishment_name}</S.TableContent>
-                    <S.TableContent>{dayjs(item.attributes.createdAt).format('DD/MM/YYYY')}</S.TableContent>
-                    <S.TableContent>{StaticMoneyFormatter(item.attributes.amount)}</S.TableContent>
-                    <S.TableContent>{item.attributes.payment_method}</S.TableContent>
-                  </S.TableLine>
-                ))}
+                {
+                transactionsList !== 'API Error'
+                  ? transactionsList.map((item) => (
+                    <S.TableLine key={item.id}>
+                      <S.TableContent>{item.attributes.establishment_name}</S.TableContent>
+                      <S.TableContent>{dayjs(item.attributes.createdAt).format('DD/MM/YYYY')}</S.TableContent>
+                      <S.TableContent>
+                        {staticMoneyFormatter(item.attributes.amount)}
+                      </S.TableContent>
+                      <S.TableContent>{item.attributes.payment_method}</S.TableContent>
+                    </S.TableLine>
+                  ))
+                  : (
+                    <S.NoTransaction>
+                      Erro ao tentar carregar transações, por favor atualize a página
+                    </S.NoTransaction>
+                  )
+                }
               </tbody>
             </S.TransactionsTable>
           )
-          : <S.NoTransaction>não existem transações</S.NoTransaction>}
+          : <S.NoTransaction>Não existem transações</S.NoTransaction>}
       </S.TransactionsBox>
     </Container>
   );
